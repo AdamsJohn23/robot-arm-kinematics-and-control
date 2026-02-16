@@ -1,0 +1,25 @@
+# MATLAB autosave files
+*.asv
+
+# MATLAB backup files
+*.m~
+
+# Compiled files
+*.mex*
+
+# Log files
+*.log
+
+# Simulink cache
+slprj/
+*.slxc
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# JetBrains
+.idea/
