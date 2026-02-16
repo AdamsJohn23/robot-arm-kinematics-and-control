@@ -1,6 +1,11 @@
+
 # Robot Arm Kinematics and Control
 
 MATLAB simulation of a 3-DOF planar robot arm that tracks user-drawn trajectories using iterative inverse kinematics and computed-torque control.
+
+---
+
+![3R Robot Control](3R_control.gif)
 
 ---
 
