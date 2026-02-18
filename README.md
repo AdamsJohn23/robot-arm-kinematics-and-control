@@ -56,19 +56,32 @@ This approach eliminates joint flips and produces smooth motion across complex c
 
 A computed-torque style controller is implemented:
 
-tau = Mqdd_des + Kpe + Kd*edot - tau_g
+τ = M(q) q̈_des + Kp e + Kd ė − τ_g(q)
 
 Where:
-- `M` is a simplified joint-space inertia matrix
-- `tau_g` is gravity torque
-- `Kp`, `Kd` are joint gains
-- Desired accelerations are feedforward
+- M(q) — simplified joint-space inertia matrix  
+- τ_g(q) — gravity torque vector  
+- Kp, Kd — proportional and derivative gain matrices  
+- e = q_des − q  
+- ė = q̇_des − q̇  
+- q̈_des — feedforward desired joint acceleration 
 
-Joint viscous damping is included in the dynamic model:
+The robot dynamics are modeled as:
 
-Mqdd + Bqd = tau
+M(q) q̈ + B q̇ = τ
 
-This improves stability and reduces oscillation.
+where:
+
+- B — viscous joint damping matrix  
+
+This structure provides:
+
+- Feedforward acceleration tracking  
+- PD error correction in joint space  
+- Explicit gravity compensation  
+- Passive damping through viscous friction  
+
+The inclusion of q̈_des improves trajectory tracking compared to standard PD control, while gravity compensation prevents steady-state sagging in extended configurations.
 
 ---
 
